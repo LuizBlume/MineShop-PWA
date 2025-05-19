@@ -12,7 +12,7 @@ const links = [
   { to: '/overworld', label: 'Overworld' },
   { to: '/nether', label: 'Nether' },
   { to: '/end', label: 'The end' },
-  { to: '/', label: 'Home'},
+  { to: '/', label: 'Home' },
   { to: '/cart', label: 'Carrinho' },]
 
 
@@ -23,18 +23,15 @@ function toggleMenu() {
 
 <template>
   <header>
-    <div class="logo">
-      <img src="../../assets/images/logo.png" alt="">
-    </div>
+    <router-link to="/" class="logo">
+      <div class="logo">
+        <img src="../../assets/images/logo.png" alt="">
+      </div>
+    </router-link>
 
     <div class="buttons" :class="{ open: isMenuOpen }">
       <template v-for="link in links" :key="link.to">
-        <RouterLink
-          v-if="link.to !== route.path"
-          :to="link.to"
-          class="link"
-          @click="toggleMenu"
-        >
+        <RouterLink v-if="link.to !== route.path" :to="link.to" class="link" @click="toggleMenu">
           <Button :text="link.label" />
         </RouterLink>
       </template>
